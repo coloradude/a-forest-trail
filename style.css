@@ -9,7 +9,7 @@
   padding: 10px;
 }
 
-#steps {
+#steps, #berry-tracker, #water-tracker {
   display: none;
 }
 
@@ -20,6 +20,10 @@ button {
   padding: 10px 20px;
 }
 
-#berry-tracker {
-  display: none;
+#find-water {
+  margin-left: 4px;
 }
+
+/*#berry-tracker {
+  display: none;
+}*/

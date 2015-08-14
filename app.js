@@ -39,8 +39,7 @@ $(document).ready(function(){
       $('#buttons').append(berryButton);
     }
 
-    $('#berries').on('click', function(){
-      //berriesToAdd = Math.max(Math.random() * 10);
+    $('#berries').click(function(){
       $('#berry-tracker').css('display', 'block');
       randomNumberOfBerries = Math.floor(Math.random() * 10);
       berryCounter += randomNumberOfBerries;
@@ -50,6 +49,32 @@ $(document).ready(function(){
       pickingBerries.innerHTML = 'you picked ' + randomNumberOfBerries + ' berries' 
       $('#left').prepend(pickingBerries);
     });
+
+    //fund water button creation and addition to #buttons div
+    if (stepCounter % 2){
+      findWaterButton = document.createElement('button');
+      findWaterButton.innerHTML = 'look for water';
+      findWaterButton.setAttribute('id', 'find-water');
+      $('#buttons').append(findWaterButton);
+    }
+
+    $('#find-water').click(function(){
+      chanceOfWater = Math.random() + 0.5;
+      if (chanceOfWater > 1){
+        numberOfWaters += 1;
+        $('#water-tracker').css('display', 'block');
+        waterDiv.innerHTML = 'water: ' + numberOfWaters;
+        var foundWater = document.createElement('div');
+        foundWater.innerHTML = 'you found water';
+        $('#left').prepend(foundWater);
+      } else {
+        var noWater = document.createElement('div');
+        noWater.innerHTML = 'you did not find water';
+        $('#left').prepend(noWater);
+      }
+      $(this).remove();
+    });
+
   });
 
   //Initialize the berry counter div and appends it to the status bar. #berry-tracker is set to display: none.
@@ -57,6 +82,13 @@ $(document).ready(function(){
   var berryDiv = document.createElement('div');
   berryDiv.setAttribute('id', 'berry-tracker');
   $('#status').append(berryDiv);
+
+  var numberOfWaters = 0;
+  var waterDiv = document.createElement('div');
+  waterDiv.setAttribute('id', 'water-tracker');
+  $('#status').append(waterDiv);
+
+
 
 });
 
