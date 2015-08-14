@@ -48,13 +48,14 @@ $(document).ready(function(){
     $('#left').prepend(walking);
 
     //berry picking
-    if (stepCounter % 1 === 0){
+    if (stepCounter % 3 === 0){
       berryButton = document.createElement('button');
       berryButton.innerHTML = 'pick berries';
       berryButton.setAttribute('id', 'berries');
       $('#buttons').append(berryButton);
     }
 
+    //pick berries button functionality
     $('#berries').click(function(){
       $('#berry-tracker').css('display', 'block');
       randomNumberOfBerries = Math.floor(Math.random() * 10);
@@ -89,7 +90,7 @@ $(document).ready(function(){
     });
 
     //fund water button creation and addition to #buttons div
-    if (stepCounter % 2){
+    if (stepCounter % 5 === 0){
       findWaterButton = document.createElement('button');
       findWaterButton.innerHTML = 'look for water';
       findWaterButton.setAttribute('id', 'find-water');
@@ -111,7 +112,7 @@ $(document).ready(function(){
         $('#left').prepend(noWater);
       }
       $(this).remove();
-
+      if (numberOfWaters > 0){
       setTimeout(function(){
         var drinkWaterButton = document.createElement('button');
         drinkWaterButton.innerHTML = 'drink water';
@@ -129,7 +130,8 @@ $(document).ready(function(){
           $('#left').prepend(drnkWaterdDiv);
 
         });
-      }, 10000)
+      }, 20000)
+    }
     });
 
   });
