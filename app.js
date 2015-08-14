@@ -64,6 +64,28 @@ $(document).ready(function(){
       var pickingBerries = document.createElement('div');
       pickingBerries.innerHTML = 'you picked ' + randomNumberOfBerries + ' berries' 
       $('#left').prepend(pickingBerries);
+
+      //eat berries every 10 seconds
+      setTimeout(function(){
+        var eatBerriesButton = document.createElement('button');
+        eatBerriesButton.innerHTML = 'eat berries';
+        eatBerriesButton.setAttribute('id', 'eat-berries');
+        $('#buttons').append(eatBerriesButton);
+        //eatBerries button functionality
+        $('#eat-berries').click(function(){
+          $(this).remove();
+          berryCounter -= 1;
+          userEnergy  += 2;
+          ateBerriesDiv = document.createElement('div');
+          ateBerriesDiv.innerHTML = 'you ate berries and gained energy';
+          energyTracker.innerHTML = 'energy: ' + userEnergy;
+          berryDiv.innerHTML = 'berries: ' + berryCounter;
+          $('#left').prepend(ateBerriesDiv);
+
+        });
+      }, 10000)
+
+      
     });
 
     //fund water button creation and addition to #buttons div
@@ -89,6 +111,25 @@ $(document).ready(function(){
         $('#left').prepend(noWater);
       }
       $(this).remove();
+
+      setTimeout(function(){
+        var drinkWaterButton = document.createElement('button');
+        drinkWaterButton.innerHTML = 'drink water';
+        drinkWaterButton.setAttribute('id', 'drink-water');
+        $('#buttons').append(drinkWaterButton);
+        //eatBerries button functionality
+        $('#drink-water').click(function(){
+          $(this).remove();
+          numberOfWaters -= 1;
+          userEnergy  += 10;
+          drnkWaterdDiv = document.createElement('div');
+          drnkWaterdDiv.innerHTML = 'you drank water and gained energy';
+          energyTracker.innerHTML = 'energy: ' + userEnergy;
+          waterDiv.innerHTML = 'water: ' + numberOfWaters;
+          $('#left').prepend(drnkWaterdDiv);
+
+        });
+      }, 10000)
     });
 
   });
