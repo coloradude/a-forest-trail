@@ -1,9 +1,8 @@
 $(document).ready(function(){
   //Tracks energy level and appends to the #status div. 
   var userEnergy = 100;
-  var energyP = document.createElement('div');
-  var energyText = document.createTextNode('energy: ' + userEnergy);
-  var energyTracker = energyP.appendChild(energyText);
+  var energyTracker = document.createElement('div');
+  energyTracker.innerHTML = 'energy: ' + userEnergy;
   $(energyTracker).appendTo('#status');
 
   //initialize step tracker, appends to #status and sets display: none
@@ -11,9 +10,26 @@ $(document).ready(function(){
   var stepDiv = document.createElement('div');
   stepDiv.setAttribute('id', 'steps');
   $(stepDiv).appendTo('#status');
+
+   //Initialize the berry counter div and appends it to the status bar. #berry-tracker is set to display: none.
+  var berryCounter = 0;
+  var berryDiv = document.createElement('div');
+  berryDiv.setAttribute('id', 'berry-tracker');
+  $('#status').append(berryDiv);
+
+  //Water tracker div
+  var numberOfWaters = 0;
+  var waterDiv = document.createElement('div');
+  waterDiv.setAttribute('id', 'water-tracker');
+  $('#status').append(waterDiv);
+
   
   //Sets behavior for the walk button. 
   $('#walk').click(function(){
+
+    //lowers userEnergy by a random number between 1 and 10
+    userEnergy -= Math.floor(Math.random() * 10);
+    energyTracker.innerHTML = 'energy: ' + userEnergy;
 
     //Disables the button for 3 seconds after each click
     this.setAttribute('disabled', true);
@@ -77,17 +93,7 @@ $(document).ready(function(){
 
   });
 
-  //Initialize the berry counter div and appends it to the status bar. #berry-tracker is set to display: none.
-  var berryCounter = 0;
-  var berryDiv = document.createElement('div');
-  berryDiv.setAttribute('id', 'berry-tracker');
-  $('#status').append(berryDiv);
-
-  var numberOfWaters = 0;
-  var waterDiv = document.createElement('div');
-  waterDiv.setAttribute('id', 'water-tracker');
-  $('#status').append(waterDiv);
-
+ 
 
 
 });
