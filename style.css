@@ -8,3 +8,14 @@
   border: 2px solid #000;
   padding: 10px;
 }
+
+#steps {
+  display: none;
+}
+
+button {
+  background-color: #CDCDCD;
+  border: solid 1px;
+  border-radius: 2px;
+  padding: 10px 20px;
+}
