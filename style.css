@@ -1,7 +1,7 @@
 #left, #right, #middle {
   width: 33%;
   float: left;
-  min-height: 100px;
+  min-height: 1000px;
 }
 
 #status {
@@ -27,3 +27,7 @@ button {
 /*#berry-tracker {
   display: none;
 }*/
+
+#suprise  {
+
+}

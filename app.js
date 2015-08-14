@@ -113,32 +113,34 @@ $(document).ready(function(){
       }
       $(this).remove();
       if (numberOfWaters > 0){
-      setTimeout(function(){
-        var drinkWaterButton = document.createElement('button');
-        drinkWaterButton.innerHTML = 'drink water';
-        drinkWaterButton.setAttribute('id', 'drink-water');
-        $('#buttons').append(drinkWaterButton);
-        //eatBerries button functionality
-        $('#drink-water').click(function(){
-          $(this).remove();
-          numberOfWaters -= 1;
-          userEnergy  += 10;
-          drnkWaterdDiv = document.createElement('div');
-          drnkWaterdDiv.innerHTML = 'you drank water and gained energy';
-          energyTracker.innerHTML = 'energy: ' + userEnergy;
-          waterDiv.innerHTML = 'water: ' + numberOfWaters;
-          $('#left').prepend(drnkWaterdDiv);
+        setTimeout(function(){
+          var drinkWaterButton = document.createElement('button');
+          drinkWaterButton.innerHTML = 'drink water';
+          drinkWaterButton.setAttribute('id', 'drink-water');
+          $('#buttons').append(drinkWaterButton);
+          //eatBerries button functionality
+          $('#drink-water').click(function(){
+            $(this).remove();
+            numberOfWaters -= 1;
+            userEnergy  += 10;
+            drnkWaterdDiv = document.createElement('div');
+            drnkWaterdDiv.innerHTML = 'you drank water and gained energy';
+            energyTracker.innerHTML = 'energy: ' + userEnergy;
+            waterDiv.innerHTML = 'water: ' + numberOfWaters;
+            $('#left').prepend(drnkWaterdDiv);
 
-        });
-      }, 20000)
-    }
+          });
+        }, 20000)
+      }
     });
-
   });
-
- 
-
-
+  setTimeout(function(){
+    supriseButton = document.createElement('button');
+    supriseButton.innerHTML = 'dont click this';
+    supriseButton.setAttribute('id','surprise-button');
+    supriseButton.setAttribute('onclick', "window.open('http://i.imgur.com/ASnMips.jpg')");
+    $('#surprise').append(supriseButton);
+    },50000)
 });
 
 
